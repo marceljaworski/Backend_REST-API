@@ -94,17 +94,17 @@ Anschließend sind die übermittelten Daten in req.body enthalten.
 Hier ist ein Beispiel-Array mit Teilnehmerdaten:
 [
     {
-      id: 1,
-      firstName: "Shannah",
-      lastName: "Curton",
-      email: "scurton0@weather.com",
-      age: 46,
+      "id": 1,
+      "firstName": "Shannah",
+      "lastName": "Curton",
+      "email": "scurton0@weather.com",
+      "age": 46,
     }, {
-      id: 2,
-      firstName: "Arvie",
-      lastName: "Stading",
-      email: "astading1@drupal.org",
-      age: 39,
+      "id": 2,
+      "firstName": "Arvie",
+      "lastName": "Stading",
+      "email": "astading1@drupal.org",
+      "age": 39,
     }, {
       id: 3,
       firstName: "Cassandry",
