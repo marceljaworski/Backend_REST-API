@@ -20,26 +20,28 @@ app.use((req, res, next) => {
 
 app.get("/participants", ( req, res ) => {
     res.status(200).json(participants)
-})
+});
+app.get("/participants/:id", (req, res) => {
+    let participant = participants.find(el => el.id == +req.params.id)
+    if(!participant) return res.status(400).json("participant not found")
+    res.status(200).json(participant);
+});
 
 app.post("/participants", ( req, res ) => {
     console.log(req.body)
-    if(+req.body.age < 18) return res.status(400).json("too young");
+    if(+req.body.age < 18) return res.status(400).json("too young")
+    if(!req.body.firstName) return res.status(400).json("please write a name")
+    if(!req.body.lastName) return res.status(400).json("please write a lastName")
+    if(!req.body.email) return res.status(400).json("please write a email")
     lastId++;
     participants.push({
         id: lastId,
         ...req.body,
     })
     res.status(201).json()
-})
-app.put("/participants/:id", ( req, res ) => {
-    console.log(req.params.id)
-    
-    participants.map((el) => {
-        +req.params.id == el.id ? {id: el.id , ...req.body} : el;
-         })
-    res.status(204).send("data posted")
-})
+});
+
+
 //2. Fange "Not Found"-Fehler ab und beantworte die Fehler selbst mit dem Statuscode 404.
 app.use((req, res) => {
     console.log("404 Not Found");
